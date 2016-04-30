@@ -1,0 +1,35 @@
+Project: DKA-2-MKA (FLP 15/16 FUN)
+Author: Mark Birger (xbirge00)
+Date: 7.4.2016
+
+Fully implemented minimalization.
+
+Steps of minimization algorithm:
+Input: DFSM w/o unreachable states
+Output: Minimal equal DFSM
+1) Make a complete DFSM
+2) Create table of equal classes
+3) Split this table as possible
+4) Generate new FSM
+5) Remove SINK state
+
+Source codes are commented with haddock,
+complete docs can be generated.
+
+Invalid inputs handling:
+1) Ignoring duplicate transitions
+2) Ingnoring duplicate states (finites too)
+3) Zero transitions set is valid (automatas/input/one_state test)
+4) 3+ agruments is invalid parameters
+
+Extra features:
+1) Working with any state names ("SINK" name is reserved)
+2) Working with any Char symbols in alphabet (numbers too)
+(automatas/input/extra_naming test)
+
+Automatic testing for predefined automatas:
+	chmod +x test.sh
+	./test.sh
+
+Most interesting in this project is Equalty class split 
+via `group . sort` and Ord, Eq implementation.
